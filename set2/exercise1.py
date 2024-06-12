@@ -13,6 +13,7 @@ this week. E.g. the word "calling" means something in a programming context,
 what does it mean?
 """
 import platform
+#check
 
 # I think this will print "hello! Let's get started" by calling the print function.
 print("hello! Let's get started")  # it printed "hello! Let's get started"
