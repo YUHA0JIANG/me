@@ -22,7 +22,7 @@ def set2exersise2(): # this is semi-right
     wordArray[0] = wordArray[0].upper()
     wordArray[1] = wordArray[1].upper() # <-- assigning to an array, another bracket problem
     wordArray[3] = wordArray[3].upper()
-    secret_word="".join(wordArray)
+    secret_word="".join(wordArray) #check
     print(secret_word)
     return secret_word
 
