@@ -40,9 +40,9 @@ def fix_it(moves=True, should_move=True):
     As an extra challenge, see if you can get that down to three.
     """
     if moves and not should_move:
-        return "WD-40"
-    elif not moves and should_move:
         return "Duct Tape"
+    elif not moves and should_move:
+        return "WD-40"
     else:
         return "No Problem"
 
@@ -89,8 +89,9 @@ def loops_1c(number_of_items=5, symbol="#"):
     or the symbol, let it be whatever it wants to be.
     """
     result_list = []  
-    for i in range(5):  
-     result_list.append("#")  
+    for i in range(number_of_items):  
+     result_list.append(symbol
+                        )  
     return result_list 
 
 
@@ -232,7 +233,7 @@ def loops_5():
     for i in range(10): 
         row = []
         for j in range(5): 
-            row.append(f"({i}, {j})") 
+            row.append(f"(i{i}, j{j})") 
         result.append(row)  
     return result
 

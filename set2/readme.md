@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week, I learned how to use Python's basic loop structure, list comprehensions, and string formatting to build 2D lists. What I still don't know is that although I use f-string formatting strings, I still don't understand its different uses and scenarios
