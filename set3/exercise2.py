@@ -8,6 +8,13 @@ This will give you some intuition about how to make exercise 3 more robust.
 
 
 import random
+def not_number_rejector(message):
+        while True:
+         try:
+            num = int(input(message))
+            return num
+         except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 
 def exampleGuessingGame():
@@ -17,26 +24,24 @@ def exampleGuessingGame():
     """
     print("\nWelcome to the guessing game!")
     print("A number between 0 and _ ?")
-    upperBound = input("Enter an upper bound: ")
-    print(f"OK then, a number between 0 and {upperBound} ?")
-    upperBound = int(upperBound)
-
+    upperBound = not_number_rejector("Enter an upper bound: ")
+    print(f"OK then, a number between 0 and {upperBound}?")
     actualNumber = random.randint(0, upperBound)
 
     guessed = False
 
     while not guessed:
-        guessedNumber = int(input("Guess a number: "))
+        guessedNumber = not_number_rejector("Guess a number: ")
         print(f"You guessed {guessedNumber},")
         if guessedNumber == actualNumber:
             print(f"You got it!! It was {actualNumber}")
             guessed = True
         elif guessedNumber < actualNumber:
-            print("Too small, try again :'(")
+            print("Too small, try again :(")
         else:
-            print("Too big, try again :'(")
-    return "You got it!"
+            print("Too big, try again :(")
 
+    return "You got it!"
 
 if __name__ == "__main__":
     exampleGuessingGame()
