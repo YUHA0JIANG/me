@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+I learned to use the 'not_number_rejector' function to ensure valid integers for user input, with modular designs such as' get_valid_input 'for obtaining and validating user input, and' binary_search 'for performing binary searches. At the same time, I verify the correctness of the code by running a function test through the 'if __name__ == "__main__":' block. However, I still need to dive into the details of exception handling and algorithmic complexity analysis to optimize code performance.
