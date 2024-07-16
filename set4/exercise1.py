@@ -178,7 +178,7 @@ if __name__ == "__main__":
 
     wp = wordy_pyramid()
     [print(f"{word} {len(word)}") for word in wp]
-python3 ../course/set2/tests.py
+
     print(pokedex(low=3, high=7))
 
     diarist()
