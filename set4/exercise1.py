@@ -15,12 +15,13 @@ if LOCAL != CWD:
         f"""
     Be careful that your relative paths are
     relative to where you think they are
+    
     LOCAL: {LOCAL}
     CWD: "CWD
     """
     )
 
-
+print (LOCAL)
 def get_some_details():
     """Parse some JSON.
 
@@ -42,9 +43,9 @@ def get_some_details():
     lastname = data["results"][0]["name"]["last"]
     password = data["results"][0]["login"]["password"]
     postcode = int(data["results"][0]["location"]["postcode"])
-    id_value = int(data["results"][0]["id"]["value"])
+    idvalue = int(data["results"][0]["id"]["value"])
 
-    return {"lastName": lastname, "password":password, "postcodePlusID": postcode + id_value}
+    return {"lastName": lastname, "password":password, "postcodePlusID": postcode + idvalue}
 
 
 def wordy_pyramid():
@@ -82,7 +83,18 @@ def wordy_pyramid():
     TIP: to add an argument to a URL, use: ?argName=argVal e.g. &wordlength=
     """
     pyramid = []
+    
+    for i in range(3, 21,2):
+      url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={i}"
+      response_text = requests.get(url).text
+      pyramid.append(response_text)
+    
+    for j in range(20, 2, -2):
 
+        url = f"https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={j}"
+        response_text = requests.get(url).text
+        pyramid.append(response_text)
+    
     return pyramid
 
 
@@ -100,13 +112,28 @@ def pokedex(low=1, high=5):
          get very long. If you are accessing a thing often, assign it to a
          variable and then future access will be easier.
     """
-    id = 5
-    url = f"https://pokeapi.co/api/v2/pokemon/{id}"
-    r = requests.get(url)
-    if r.status_code is 200:
-        the_json = json.loads(r.text)
+    max_height = 0
+    max_id = -1
+    for id in range(low,high+1):
+        url = f"https://pokeapi.co/api/v2/pokemon/{id}"
+        r = requests.get(url)
+        if r.status_code == 200:
+           the_json = json.loads(r.text)
+        curr_height = the_json['height']
+        if curr_height > max_height :
+          max_id = id
+          max_height = curr_height
 
-    return {"name": None, "weight": None, "height": None}
+
+        url=f"https://pokeapi.co/api/v2/pokemon/{max_id}"
+        r = requests.get(url)
+        if r.status_code == 200:
+           the_json = json.loads(r.text)
+           name=the_json['name']
+           weight=the_json['weight']
+           height=the_json['height']
+
+    return {"name":name , "weight":weight , "height":height }
 
 
 def diarist():
@@ -126,7 +153,24 @@ def diarist():
 
     NOTE: this function doesn't return anything. It has the _side effect_ of modifying the file system
     """
-    pass
+    input_file_path = f'{LOCAL}/Trispokedovetiles(laser).gcode'
+    output_file_path = f'{LOCAL}/lasers.pew'
+    try:
+        with open(input_file_path, 'r') as file:
+            content = file.read()
+    except FileNotFoundError:
+        print(f"Error: The file {input_file_path} was not found.")
+        return
+
+    # Count the occurrences of "M10 P1"
+    command = "M10 P1"
+    count = content.count(command)
+
+    # Write the count to 'lasers.pew'
+    with open(output_file_path, 'w') as file:
+        file.write(str(count))
+
+
 
 
 if __name__ == "__main__":
@@ -134,7 +178,7 @@ if __name__ == "__main__":
 
     wp = wordy_pyramid()
     [print(f"{word} {len(word)}") for word in wp]
-
+python3 ../course/set2/tests.py
     print(pokedex(low=3, high=7))
 
     diarist()

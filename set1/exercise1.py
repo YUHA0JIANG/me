@@ -1,12 +1,8 @@
-"""Your very first python program!
+import pandas as pd
 
-TODO: write a python script that prints "Hello world!"
+# 获取世界银行的金融普惠数据
+url = "http://api.worldbank.org/v2/en/indicator/IT.NET.USER.ZS?downloadformat=csv"
+data = pd.read_csv(url, skiprows=4)
 
-Look on the course website for how to do this, and for how to run the tests.
-
-https://design-computing.github.io/md/week1
-
-"""
-# 👇👇 Write your code here 👇👇
-print("Hello world!")
-# 👆👆 Write your code here 👆👆
+# 显示前几行数据
+print(data.head())
