@@ -168,7 +168,7 @@ def pet_filter(letter="a") -> list:
         "canary", "society finch", "fancy mouse", "siamese fighting fish", 
         "fancy rat and lab rat", "mink", "red fox", "hedgehog", "guppy"
     ]
-    # fmt: on
+    #fmt: on
     filtered = [pet for pet in pets if letter in pet]
     return filtered
 
