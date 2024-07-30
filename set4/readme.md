@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+In the course of learning set4, I learned how to read and view data, create random sequences of numbers, read files and write the results to another file.
