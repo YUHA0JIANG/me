@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+Along the way, I learned how to check the value of a variable by adding print statements to my code and understood the importance of debugging code step by step. I improved my ability to read and understand complex code, especially when analyzing recursive functions, and I gained a deeper grasp of how recursion works. I learned to gradually reduce the scope of the problem and iterate to continuously improve the code and gradually find the optimal solution.
