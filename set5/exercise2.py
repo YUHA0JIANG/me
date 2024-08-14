@@ -65,13 +65,13 @@ def italian_dinner(axiom="tomatoes", guard=6):
 def italian_rules(word):
     """Substitution rules to make Italian recipes."""
     if word == "tomatoes":
-        return "tomatoes with linguini and basil"
+        return "fresh tomatoes with mozzarella and basil"
     elif word == "and":
-        return "runny with delicious pesto"
+        return "served with"
     elif word == "delicious":
-        return "made of runny and yummy pasta and tomatoes"
+        return "mouth-watering"
     elif word == "runny":
-        return "yummy and delicious tomatoes and pasta"
+        return "smooth and creamy"
     else:
         return word
 
@@ -92,24 +92,25 @@ def abba(source="abba", guard=3):
                 and so on...
     """
 
-    def apply_rules(letter):
-        """Control the substitution.
-
-        You need to change these substitutions to make it work.
-
-        Hint: when guard == -1 return the letter.
-        """
-        if letter == "a":
-            return "a"
-        elif letter == "b":
-            return "b"
-        elif letter == "o":
-            return "o"
-        else:
-            return letter
-
-    # write the rest of the function here
-    pass
+def apply_rules(letter, guard):
+    """Control the substitution."""
+    if guard == -1:
+        return letter
+    
+    if letter == "a":
+        return "bbaoaobba"
+    elif letter == "b":
+        return "bbaaobba"
+    elif letter == "o":
+        return "bbabbaoabb"
+    else:
+        return letter
+def abba(source="abba", guard=3):
+    if guard <= 0:
+        return source
+    else:
+        new_source = "".join(apply_rules(letter) for letter in source)
+        return abba(new_source, guard - 1)
 
 
 def koch(t, order, size):
@@ -127,13 +128,8 @@ def koch(t, order, size):
         trace += koch(t, order - 1, size / 3)
     return str(order) + trace
 
-
 def draw_koch(drawing_method, steps_deep=4):
-    """Open a tk window and show the turtle drawing the koch curve.
-
-    Docs for python turtles here.
-    https://docs.python.org/3/library/turtle.html
-    """
+    """Open a Tk window and show the turtle drawing the koch curve."""
     raphael = turtle.Turtle()
     raphael.speed(1000)
     raphael.penup()
@@ -144,18 +140,20 @@ def draw_koch(drawing_method, steps_deep=4):
 
 
 def square_koch(t, order, size):
-    r"""Draw a koch curve with a square rather than a triangular point.
-
-           _
-    e.g. _| |_ rather than _/\_
-
-    Leave the turtle facing the same direction.
-
-    """
-    trace = ""
-    # write the rest of the function here.
-    return str(order) + trace
-    pass
+    """Draw a koch curve with a square rather than a triangular point."""
+    if order == 0:
+        t.forward(size)
+    else:
+        trace += square_koch(t, order - 1, size / 3)
+        t.left(90)
+        trace += square_koch(t, order - 1, size / 3)
+        t.right(90)
+        trace += square_koch(t, order - 1, size / 3)
+        t.right(90)
+        trace += square_koch(t, order - 1, size / 3)
+        t.left(90)
+        trace += square_koch(t, order - 1, size / 3)
+    return trace
 
 
 def draw_square(steps=4):
