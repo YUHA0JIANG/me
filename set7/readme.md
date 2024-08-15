@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week I learned how to initially explore and analyze a data set. I learned to look at the size of the data, understand the source and purpose of the data, and analyze the content and type of data column by column. I also learned how to use charts to understand the distribution of data and how to work with time series data. Through these steps, I was able to identify what was interesting about the data, which laid the foundation for subsequent data analysis and narrative.

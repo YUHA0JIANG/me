@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week I learned how to choose the right data set and research topic, and started doing exploratory data analysis to better understand the potential of the data. I have improved my data processing and visualization skills by learning Pandas in depth.

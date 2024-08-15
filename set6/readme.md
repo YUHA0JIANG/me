@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week, I enhanced my understanding of Python programming, especially IO operations and recursive functions, by reading and debugging code, learning how to use the requests library to get and process JSON data from the Internet, and mastering API calls and data formatting. I also discuss open data project ideas with my mentors and learn how to plan and manage data projects from scratch.

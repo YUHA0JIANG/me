@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week I learned how to use Pandas for data processing and visualization through a specific tutorial. I also started exploring and thinking about the questions I wanted to answer and looking for relevant data sets to support those studies. In addition, I further improved my ability of data analysis and visualization by completing lab book and research Pandas.

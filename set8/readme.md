@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+This week I learned how to prepare for the test, including reviewing the previous material and understanding the process of the test. In the lab class, I participated in the exam and was instructed to complete, submit, and push to my code base within a specified time. In addition, I also learned how to deal with and prepare for the next software project, which will become the focus of the next study.
